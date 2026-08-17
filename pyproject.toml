@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "explainable-transaction-anomaly-detector"
+version = "1.0.0"
+description = "Point-in-time-safe, explainable statistical anomaly detection for synthetic cryptocurrency transactions"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Portfolio Project"}]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-cov>=4.1"]
+
+[project.scripts]
+anomaly-detector = "anomaly_detector.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["anomaly_detector*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
